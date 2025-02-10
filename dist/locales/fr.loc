@@ -74,7 +74,8 @@
 	"newVersion": "Nouvelle version $$ disponible !",
 	"noScreenSaver": "Impossible de démarrer l'économiseur d'écran: $$",
 	"noReady": "Attendez l'initialisation complète du client avant d'afficher le menu !",
-	"changeLog": "Journal des modifications"
+	"changeLog": "Journal des modifications",
+	"static": "Configurez d'abord une route HTTP dans les propriétés pour rendre statique un répertoire"
   },
   "newVersion": {
 	"newVersionTitle": "Mise à jour vers la version $$",
@@ -328,7 +329,8 @@
 	"done": "Intercom: Enregistrement terminé",
 	"recordError": "J'ai rencontré une erreur pendant l'enregistrement du message",
 	"error": "Erreur Intercom: $$",
-	"play": "Intercom reçu de $$"
+	"play": "Intercom reçu de $$",
+	"noRoute": "Configurez une route HTTP dans les propriétés pour utiliser l'intercom"
   },
   "functionLibrairy": {
 	"getSecond": "DEPUIS $$ SEC",

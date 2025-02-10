@@ -605,6 +605,11 @@ function runApp( qs, callback) {
 
 function intercom(sentence, full) {
 
+	if (!appClient) {
+		error(L.get('intercom.noRoute'));
+		return;
+	}
+
 	Avatar.speak(Config.intercom.locale[Config.speech.locale].start, async () => {
 		let startTime, endTime;
 

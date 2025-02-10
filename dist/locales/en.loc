@@ -74,7 +74,8 @@
 	"newVersion": "New version $$ available!",
 	"noScreenSaver": "Unable to start the screensaver: $$",
 	"noReady": "Wait for the client to initialize completely before displaying the menu!",
-	"changeLog": "Change log"
+	"changeLog": "Change log",
+	"static": "First, configure an HTTP route in the properties to serve a directory statically."
   },
   "newVersion": {
 	"newVersionTitle": "Upgrade to version $$",
@@ -328,7 +329,8 @@
 	"done": "Intercom: Recording complete",
 	"recordError": "Sorry, there was an error recording the message",
 	"error": "Intercom error: $$",
-	"play": "Intercom reçu de $$"
+	"play": "Intercom reçu de $$",
+	"noRoute": "Configure an HTTP route in the properties to use the intercom."
   },
   "functionLibrairy": {
 	"getSecond": "SINCE $$ SEC",

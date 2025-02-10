@@ -10,6 +10,10 @@ if (prop === null) {
     prop = fs.readJsonSync(path.resolve(__dirname, '../assets/config/default/Avatar.prop'), { throws: true });
 }
 
+/**
+ * @type {any}
+ * @description A variable to hold the soundex value defined by the language
+ */
 var soundex;
 if (prop.speech.locale.split('-')[0].toLowerCase() === 'fr') {
     soundex = await import('@jollie/soundex-fr');
@@ -28,6 +32,19 @@ let reconizerStopped = false, actions = [], isActionAka, AKAStopped = false, tim
 let is_askme = {active: false, options: null}, is_silence;
 let initProperties;
 
+/**
+ * Changes the voice configuration for the Avatar application.
+ * 
+ * This function updates the current voice configuration based on the active voices available
+ * for the specified locale and type. If the server_speak configuration is enabled, it emits
+ * a 'plugin_action' event to change the voice. Otherwise, it cycles through the available
+ * voices and updates the configuration accordingly.
+ * 
+ * The updated configuration is then saved to a file and applied to the Avatar application.
+ * Finally, a message indicating the voice change is spoken by the Avatar.
+ * 
+ * @function changeVoice
+ */
 function changeVoice() {
 
     if (Config.speech.server_speak) {
@@ -64,6 +81,13 @@ async function getRemoteVoices(init, lang) {
 }
 
 
+/**
+ * Manages actions based on the provided buffer and aka.
+ *
+ * @param {string} buffer - The input buffer containing the action to be managed.
+ * @param {string} aka - An alias or identifier associated with the action.
+ * @returns {Promise<void>} A promise that resolves when the action management is complete.
+ */
 async function manageActions (buffer, aka) {
 
     if (timeoutStarted) {timeoutStarted.stop(); timeoutStarted = null};

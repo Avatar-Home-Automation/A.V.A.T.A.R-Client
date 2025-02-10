@@ -9,23 +9,30 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 let Config;
 
 
+/**
+ * Compares the current version with a list of new versions and resolves with the first new version that is greater than the current version.
+ *
+ * @param {string} currentVersion - The current version in the format 'x.x.x'.
+ * @param {string[]} newVersions - An array of new versions to compare against the current version.
+ * @returns {Promise<string|boolean>} - A promise that resolves with the first new version that is greater than the current version, or false if no new version is greater.
+ */
 const checkUpdateVersions = (currentVersion, newVersions) => {
-    return new Promise(async (resolve) => {
-        newVersions.forEach(newVersion => {
+    return new Promise((resolve) => {
+        newVersions.some(newVersion => {
+            let splitNewVersion = newVersion.split('.').map(Number);
+            let splitCurrentVersion = currentVersion.map(Number);
 
-            let splitNewVersion = newVersion.split('.');
-            
-            if (parseInt(currentVersion[0]) < parseInt(splitNewVersion[0])) {
-                return resolve(newVersion.trim());
-            } else if (parseInt(currentVersion[0]) <= parseInt(splitNewVersion[0]) && parseInt(currentVersion[1]) < parseInt(splitNewVersion[1])) {
-                return resolve(newVersion.trim());
-            } else if (parseInt(currentVersion[0]) <= parseInt(splitNewVersion[0]) && parseInt(currentVersion[1]) <= parseInt(splitNewVersion[1]) && parseInt(currentVersion[2]) < parseInt(splitNewVersion[2])) {
-                return resolve(newVersion.trim());
+            for (let i = 0; i < splitNewVersion.length; i++) {
+                if (splitCurrentVersion[i] < splitNewVersion[i]) {
+                    return resolve(newVersion.trim());
+                } else if (splitCurrentVersion[i] > splitNewVersion[i]) {
+                    break;
+                }
             }
         });
 
         return resolve(false);
-    });    
+    });
 }
 
 
