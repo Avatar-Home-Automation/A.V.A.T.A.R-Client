@@ -8,8 +8,9 @@
 ## 🚀 New Features and Improvements
 
 ### ✨ New Features
-- **[A.V.A.T.A.R]**: Updated the modules `Xel`, `jsoneditor`, `Puppeteer`, `Cron`, and `electron` to the latest version.
-
+- **[Modules]**: Updated the modules `Xel`, `jsoneditor`, `Puppeteer`, `Cron`, and `electron` to the latest version.
+- **[Interface Languages]**: Added German and Spanish languages, and revamped the French and English languages.
+- **[Interfaces]**: Redesigned all interfaces to align with the new version of `Xel`.
 
 ---
 
