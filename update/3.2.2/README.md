@@ -1,0 +1,33 @@
+# Changelog - Version 3.2.2
+
+## 📅 Release Date
+19 february 2025
+
+---
+
+## 🚀 New Features and Improvements
+
+### ✨ New Features
+- **[A.V.A.T.A.R]**: Updated the modules `Xel`, `jsoneditor`, `Puppeteer`, `Cron`, and `electron` to the latest version.
+
+
+---
+
+## 🐞 Bug Fixes
+- Fixed minor visual bugs.  
+
+---
+
+## ⚠️ Breaking Changes
+- If you have plugins with `npm` packages, you can update them by removing the _node_modules_ directory and, if necessary, adding a _package.json_ file in the plugin's GitHub project.  
+
+---
+
+## 📩 Feedback and Support
+If you encounter issues or have questions, open an [issue](https://github.com/Avatar-Home-Automation/A.V.A.T.A.R-Client/issues) or contact us at [avatar.home.automation@gmail.com]
+
+---
+
+💣 This Changelog will self-destruct upon the next update installation. In the meantime, you can view it in the `information` command and by clicking on the `Change log` link.
+
+<br><br>
