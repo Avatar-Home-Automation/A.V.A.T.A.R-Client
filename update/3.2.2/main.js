@@ -906,7 +906,7 @@ function settings(init) {
     parent: mainWindow,
     resizable: true,
     show: false,
-    width: 700,
+    width: 730,
     height: 730,
     maximizable: true,
     icon: path.resolve(__dirname, 'assets/images/icons/settings.png'),

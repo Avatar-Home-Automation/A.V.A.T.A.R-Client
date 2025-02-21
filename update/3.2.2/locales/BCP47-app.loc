@@ -14,5 +14,9 @@
 	"4": {
 		"tag": "es",
 		"region": "Castilian Spanish (as spoken in Central-Northern Spain)"
+	},
+	"5": {
+		"tag": "it",
+		"region": "Standard Italian (as spoken in Italy)"
 	}
 }
