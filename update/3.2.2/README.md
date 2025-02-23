@@ -19,11 +19,6 @@
 
 ---
 
-## ⚠️ Breaking Changes
-- If you have plugins with `npm` packages, you can update them by removing the _node_modules_ directory and, if necessary, adding a _package.json_ file in the plugin's GitHub project.  
-
----
-
 ## 📩 Feedback and Support
 If you encounter issues or have questions, open an [issue](https://github.com/Avatar-Home-Automation/A.V.A.T.A.R-Client/issues) or leave a message on [Discord](https://discord.gg/CkJ7swNXYb) or contact us at [avatar.home.automation@gmail.com]
 
