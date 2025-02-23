@@ -9,7 +9,7 @@
 
 ### ✨ New Features
 - **[Modules]**: Updated the modules `Xel`, `jsoneditor`, `Puppeteer`, `Cron`, and `electron` to the latest version.
-- **[Interface Languages]**: Added German and Spanish languages, and revamped the French and English languages.
+- **[Interface Languages]**: Added German, Spanish and Italian languages, and revamped the French and English languages.
 - **[Interfaces]**: Redesigned all interfaces to align with the new version of `Xel`.
 
 ---
@@ -25,7 +25,7 @@
 ---
 
 ## 📩 Feedback and Support
-If you encounter issues or have questions, open an [issue](https://github.com/Avatar-Home-Automation/A.V.A.T.A.R-Client/issues) or contact us at [avatar.home.automation@gmail.com]
+If you encounter issues or have questions, open an [issue](https://github.com/Avatar-Home-Automation/A.V.A.T.A.R-Client/issues) or leave a message on [Discord](https://discord.gg/CkJ7swNXYb) or contact us at [avatar.home.automation@gmail.com]
 
 ---
 
