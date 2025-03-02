@@ -11,7 +11,7 @@
   </head>
   <body id="body">
     <x-tabs class="action-tab">
-        <x-tab selected class="tabProps cursor-pointer" id="connexion">
+        <x-tab toggled class="tabProps cursor-pointer" id="connexion">
           <x-label id="connexion-label"></x-label>
         </x-tab>
         <x-tab class="tabProps cursor-pointer" id="dialog">
@@ -96,7 +96,7 @@
                 <x-stepper disabled="decrement"></x-stepper>
               </x-numberinput>
             </div>
-            <x-card id="xcard-screen-saver" style="margin-bottom: 10px;">
+            <x-card id="xcard-screen-saver" style="margin-bottom: 10px; padding: 0;">
               <strong id="screen-saver-label" class="margin-left-10 margin-top-5" style="font-size: 13px;"></strong>
               <div id="screen-saver-div" class="options-div">
                 <x-input class="padding-10 max-width-300" id="screen-saver" size="small">
@@ -112,16 +112,16 @@
                   <x-stepper></x-stepper>
                 </x-numberinput>
               </div>
-              <x-switch size="small" id="screen-saver-label-onoff" style="margin-left: 10px; margin-top: 75px;">
+              <x-switch size="small" id="screen-saver-label-onoff" style="margin-left: 10px;">
                 <x-label class="padding-5" id="label-screen-saver-label-onoff"></x-label>
               </x-switch>
             </x-card>
-            <x-card id="xcard-update" style="margin-bottom: 10px;">
+            <x-card id="xcard-update" style="margin-bottom: 10px; padding: 0;">
               <strong id="update-label" class="margin-left-10 margin-top-15" style="font-size: 13px;"></strong>
               <x-switch size="small" id="update-start" style="margin-left: 10px; margin-top: 5px;">
                 <x-label class="padding-5" id="label-update-start"></x-label>
               </x-switch>
-              <x-label class="margin-left-10 margin-top-10" id="label-powershell"></x-label>
+              <x-label class="margin-left-10" id="label-powershell" style="margin-top: 5px;"></x-label>
               <div id="update-div" class="options-update-div">
                 <x-input class="padding-10 max-width-300" id="powershell" size="small">
                    <x-label></x-label>
@@ -191,7 +191,7 @@
 
           <x-label class="margin-top-15" id="AKA-separator-label"></x-label>
           <x-tagsinput class="input-list" id="AKA-separator-list"></x-tagsinput>
-          <x-button id="delete-AKA-separator-list" size="small" style="cursor: pointer  ; margin-top: 10px;">
+          <x-button id="delete-AKA-separator-list" size="small" style="cursor: pointer  ; margin-top: 5px;">
             <x-icon href="#delete"></x-icon>
             <x-label id="label-delete-AKA-separator-list"></x-label>
           </x-button>
@@ -199,7 +199,7 @@
 
           <x-label class="margin-top-15" id="AKA-restart-label"></x-label>
           <x-tagsinput class="input-list" id="AKA-restart-list"></x-tagsinput>
-          <x-button id="delete-AKA-restart-list" size="small" style="cursor: pointer  ; margin-top: 10px;">
+          <x-button id="delete-AKA-restart-list" size="small" style="cursor: pointer  ; margin-top: 5px;">
             <x-icon href="#delete"></x-icon>
             <x-label id="label-delete-AKA-restart-list"></x-label>
           </x-button>
@@ -249,12 +249,12 @@
 
           <x-label style="margin-top: 15px;" id="active-voices-label"></x-label>
           <x-tagsinput class="input-list" id="active-voices"></x-tagsinput>
-          <x-button id="delete-active-voices" size="small" style="cursor: pointer  ; margin-top: 10px;">
+          <x-button id="delete-active-voices" size="small" style="cursor: pointer  ; margin-top: 5px;">
             <x-icon href="#delete"></x-icon>
             <x-label id="label-delete-active-voices"></x-label>
           </x-button>
 
-          <div class="menu-div" style="margin-top: 25px;">
+          <div class="menu-div" style="margin-top: 15px;">
             <x-label class="padding-5" id="available-voices-label"></x-label>
             <x-select size="small">
               <x-menu id="avalaible-voices">
@@ -318,60 +318,60 @@
         </form>
 
         <form id="rules-tab" class="rules-tab" hidden=true>
-          <x-card style="width: calc(100% - 20px); margin: 0px 0px;">
+          <x-card style="width: calc(100% - 20px); margin: 0px 0px; padding: 0;">
             <main style="padding: 3px 10px;">
-              <strong id="title-rules" style="font-size: 13px;"></strong>
+              <strong id="title-rules"></strong>
               <x-label id="thx-rule-label" style="margin-top: 5px;"></x-label>
               <x-tagsinput class="card-list" id="thx-rule"></x-tagsinput>
-              <x-button id="delete-thx-rule" size="small" style="cursor: pointer  ; margin-top: 10px;">
+              <x-button id="delete-thx-rule" size="small" style="cursor: pointer  ; margin-top: 5px;">
                 <x-icon href="#delete"></x-icon>
                 <x-label id="label-delete-thx-rule"></x-label>
               </x-button>
 
               <x-label id="stop-rule-label" style="margin-top: 15px;"></x-label>
               <x-tagsinput class="card-list" id="stop-rule"></x-tagsinput>
-              <x-button id="delete-stop-rule" size="small" style="cursor: pointer  ; margin-top: 10px;">
+              <x-button id="delete-stop-rule" size="small" style="cursor: pointer  ; margin-top: 5px;">
                 <x-icon href="#delete"></x-icon>
                 <x-label id="label-delete-stop-rule"></x-label>
               </x-button>
             </main>
           </x-card>
 
-          <x-card style="width: calc(100% - 20px); margin: 15px 0px;">
+          <x-card style="width: calc(100% - 20px); margin: 15px 0px; padding: 0;">
             <main style="padding: 3px 10px;">
-              <strong id="title-answer" style="font-size: 13px;"></strong>
+              <strong id="title-answer"></strong>
 
               <x-label id="listen-answer-label" style="margin-top: 5px;"></x-label>
               <x-tagsinput class="card-list" id="listen-answer"></x-tagsinput>
-              <x-button id="delete-listen-answer" size="small" style="cursor: pointer  ; margin-top: 10px;">
+              <x-button id="delete-listen-answer" size="small" style="cursor: pointer  ; margin-top: 5px;">
                 <x-icon href="#delete"></x-icon>
                 <x-label id="label-delete-listen-answer"></x-label>
               </x-button>
 
               <x-label id="listen-again-answer-label" style="margin-top: 15px;"></x-label>
               <x-tagsinput class="card-list" id="listen-again-answer"></x-tagsinput>
-              <x-button id="delete-listen-again-answer" size="small" style="cursor: pointer  ; margin-top: 10px;">
+              <x-button id="delete-listen-again-answer" size="small" style="cursor: pointer  ; margin-top: 5px;">
                 <x-icon href="#delete"></x-icon>
                 <x-label id="label-delete-listen-again-answer"></x-label>
               </x-button>
             
               <x-label id="askme-again-answer-label" style="margin-top: 15px;"></x-label>
               <x-tagsinput class="card-list" id="askme-again-answer"></x-tagsinput>
-              <x-button id="delete-askme-again-answer" size="small" style="cursor: pointer  ; margin-top: 10px;">
+              <x-button id="delete-askme-again-answer" size="small" style="cursor: pointer  ; margin-top: 5px;">
                 <x-icon href="#delete"></x-icon>
                 <x-label id="label-delete-askme-again-answer"></x-label>
               </x-button>
             
               <x-label id="thx-answer-label" style="margin-top: 15px;"></x-label>
               <x-tagsinput class="card-list" id="thx-answer"></x-tagsinput>
-              <x-button id="delete-thx-answer" size="small" style="cursor: pointer  ; margin-top: 10px;">
+              <x-button id="delete-thx-answer" size="small" style="cursor: pointer  ; margin-top: 5px;">
                 <x-icon href="#delete"></x-icon>
                 <x-label id="label-delete-thx-answer"></x-label>
               </x-button>
 
               <x-label id="stop-answer-label" style="margin-top: 15px;"></x-label>
               <x-tagsinput class="card-list" id="stop-answer"></x-tagsinput>
-              <x-button id="delete-stop-answer" size="small" style="cursor: pointer  ; margin-top: 10px;">
+              <x-button id="delete-stop-answer" size="small" style="cursor: pointer  ; margin-top: 5px;">
                 <x-icon href="#delete"></x-icon>
                 <x-label id="label-delete-stop-answer"></x-label>
               </x-button>
@@ -380,7 +380,7 @@
         </form>
 
         <form id="nodes-tab" class="nodes-tab" hidden=true>
-          <x-card style="margin-top: 0px; margin-bottom: 0px; width: calc(100% - 20px); overflow: auto;">
+          <x-card style="margin-top: 0px; margin-bottom: 0px; width: calc(100% - 20px); overflow: auto; padding-top: 0;">
             <main style="padding-top: 10px;">
               <strong id="shape-title"></strong>
               <x-switch size="small" id="shape-start" style="margin-top: 10px;">
@@ -465,7 +465,7 @@
               </div>
             </main>
           </x-card>
-          <x-card style="margin-top: 10px; margin-bottom: 0px; width: calc(100% - 20px); overflow: auto;">
+          <x-card style="margin-top: 10px; margin-bottom: 0px; width: calc(100% - 20px); overflow: auto; padding-top: 0;">
             <main style="padding-top: 10px;">
               <strong id="console-title"></strong>
               <x-switch size="small" style="margin-top: 10px;" id="console-txt-bold">
@@ -540,28 +540,28 @@
           <x-label style="margin-top: 10px; margin-right: 15px;" id="activate-intercom-label"></x-label>
           <x-label style="margin-top: 5px; font-size: 11px; margin-right: 15px;" id="activate-intercomInfo-label"></x-label>
           <x-tagsinput class="input-list" id="activate-intercom"></x-tagsinput>
-          <x-button id="delete-activate-intercom" size="small" style="cursor: pointer  ; margin-top: 10px;">
+          <x-button id="delete-activate-intercom" size="small" style="cursor: pointer  ; margin-top: 5px;">
             <x-icon href="#delete"></x-icon>
             <x-label id="label-delete-activate-intercom"></x-label>
           </x-button>
           
           <x-label style="margin-top: 10px; margin-right: 15px;" id="activate-global-intercom-label"></x-label>
           <x-tagsinput class="input-list" id="activate-global-intercom"></x-tagsinput>
-          <x-button id="delete-activate-global-intercom" size="small" style="cursor: pointer  ; margin-top: 10px;">
+          <x-button id="delete-activate-global-intercom" size="small" style="cursor: pointer  ; margin-top: 5px;">
             <x-icon href="#delete"></x-icon>
             <x-label id="label-delete-activate-global-intercom"></x-label>
           </x-button>
           
           <x-label style="margin-top: 10px; margin-right: 15px;" id="answer-intercom-label"></x-label>
           <x-tagsinput class="input-list" id="answer-intercom"></x-tagsinput>
-          <x-button id="delete-answer-intercom" size="small" style="cursor: pointer  ; margin-top: 10px;">
+          <x-button id="delete-answer-intercom" size="small" style="cursor: pointer  ; margin-top: 5px;">
             <x-icon href="#delete"></x-icon>
             <x-label id="label-delete-answer-intercom"></x-label>
           </x-button>
           
           <x-label style="margin-top: 10px; margin-right: 15px;" id="send-intercom-label"></x-label>
           <x-tagsinput class="input-list" id="send-intercom"></x-tagsinput>
-          <x-button id="delete-send-intercom" size="small" style="cursor: pointer  ; margin-top: 10px;">
+          <x-button id="delete-send-intercom" size="small" style="cursor: pointer  ; margin-top: 5px;">
             <x-icon href="#delete"></x-icon>
             <x-label id="label-delete-send-intercom"></x-label>
           </x-button>

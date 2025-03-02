@@ -706,7 +706,7 @@ function emptyTab () {
   let link = document.getElementsByClassName("plugins-tab");
   for (i = 0; i < link.length; i++) {
       link[i].className = link[i].className.replace(" active", "");
-      link[i].selected = false;
+      link[i].toggled = false;
   }
   document.getElementById('empty').style.display = "block";
 }
@@ -721,7 +721,7 @@ function setTab (selected) {
   let link = document.getElementsByClassName("plugins-tab");
   for (i = 0; i < link.length; i++) {
       link[i].className = link[i].className.replace(" active", "");
-      link[i].selected = false;
+      link[i].toggled = false;
   }
   document.getElementById(selected).style.display = "block";
   if (selected !== 'createplugin' && selected !== 'auditplugin') {
@@ -731,7 +731,7 @@ function setTab (selected) {
     }
 
     document.getElementById(selected+'-tab').className += " active";
-    document.getElementById(selected+'-tab').selected = true;
+    document.getElementById(selected+'-tab').toggled = true;
   } else {
     let tabs = document.getElementsByClassName("action-tab");
     for (i = 0; i < tabs.length; i++) {

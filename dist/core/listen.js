@@ -487,7 +487,7 @@ async function askme(options) {
     if (options.tts) {
         Avatar.speak(options.tts, () => {
             startListen();
-        }, false, options.voice, options.volume, options.speed);
+        }, false, options.voice, options.volume, options.speed, options.pitch);
     } else {
         startListen();
     }

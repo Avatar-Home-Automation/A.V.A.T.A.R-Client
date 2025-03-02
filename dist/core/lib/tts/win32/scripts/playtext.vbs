@@ -28,7 +28,6 @@ For Each arg in WScript.Arguments
     ElseIf needRate Then
         rate=CInt(arg)
         needRate = False
-
     ElseIf "-v" = arg Then
         needVolume = True
     ElseIf needVolume Then

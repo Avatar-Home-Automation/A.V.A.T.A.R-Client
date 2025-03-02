@@ -1,7 +1,7 @@
 import { app, BrowserWindow, globalShortcut, safeStorage, ipcMain, dialog, Menu, shell } from 'electron';
 import fs from 'fs-extra';
 import * as path from 'node:path';
-import { exec } from 'node:child_process';
+import { exec, execSync } from 'node:child_process';
 import _ from 'underscore';
 import moment from 'moment';
 import { CronJob } from 'cron';
@@ -17,6 +17,22 @@ import * as reportLibrary from './reportLibrary.js';
 import { default as SimpleTTS } from './lib/simpletts/lib/cjs/main.cjs';
 const vbsFolders = path.resolve(__dirname, "core", "lib", "tts",  process.platform, "scripts");
 const TTS = new SimpleTTS(vbsFolders);
+
+
+// Patch for MacOS, retrieving the PATH for the application
+if (process.platform === 'darwin') {
+  try {
+    // Try first with launchctl
+    let updatedPath = execSync('launchctl getenv PATH', { encoding: 'utf8' }).trim();
+    // If it's empty, launch a login shell to retrieve the PATH
+    if (!updatedPath) {
+      updatedPath = execSync('zsh -l -c "echo $PATH"', { encoding: 'utf8' }).trim();
+    }
+    process.env.PATH = updatedPath;
+  } catch (error) {
+    console.error('Error retrieving PATH via launchctl:', error);
+  }
+}
 
 // Windows
 let mainWindow;
@@ -127,6 +143,7 @@ function createWindow () {
       if (backupRestoreWindow) backupRestoreWindow.webContents.openDevTools();
       if (initInformationWindow) initInformationWindow.webContents.openDevTools();
       if (newVersionInfo) newVersionInfo.webContents.openDevTools();
+      if (informationWindow) informationWindow.webContents.openDevTools();
       mainWindow.webContents.openDevTools();
     });
 
@@ -905,7 +922,7 @@ function settings(init) {
     parent: mainWindow,
     resizable: true,
     show: false,
-    width: 700,
+    width: 730,
     height: 730,
     maximizable: true,
     icon: path.resolve(__dirname, 'assets/images/icons/settings.png'),
