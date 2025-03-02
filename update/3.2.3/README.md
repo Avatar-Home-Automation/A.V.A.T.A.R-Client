@@ -6,7 +6,7 @@
 ---
 
 ## 🐞 Bug Fixes
-- **[Plugin client]**: Modification de la fonction `Avatar.clientPlugin()` pour que le callback retourne correctement une valeur de retour.  
+- **[Plugin client]**: Modification of the `Avatar.clientPlugin()` function so that the callback correctly returns a value.
 
 ---
 
