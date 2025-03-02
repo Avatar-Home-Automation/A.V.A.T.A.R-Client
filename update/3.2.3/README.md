@@ -11,6 +11,7 @@
 ---
 
 ## 🐞 Bug Fixes
+- **[Cron]**: Modification of the plugin's Cron startup function.
 - **[Plugin client]**: Modification of the `Avatar.clientPlugin()` function so that the callback correctly returns a value.
 
 ---
