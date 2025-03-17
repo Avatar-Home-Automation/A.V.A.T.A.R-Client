@@ -90,11 +90,13 @@ function CheckDependencies {
     }
 }
 
-# Teste si le script est exécuté en tant qu'administrateur
-If (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-    Write-Host "This script must be executed in administrator mode." -ForegroundColor Red
-    Write-Host "Do a right click on the PowerShell shorcut and select 'Run as Administrator'." -ForegroundColor Red
-    Exit 1
+if ($platform -eq "win32") {
+    # Teste si le script est exécuté en tant qu'administrateur
+    If (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+        Write-Host "This script must be executed in administrator mode." -ForegroundColor Red
+        Write-Host "Do a right click on the PowerShell shorcut and select 'Run as Administrator'." -ForegroundColor Red
+        Exit 1
+    }
 }
 
 CheckDependencies
@@ -393,10 +395,10 @@ function Install-ffmpeg {
         if (-Not (Test-Path "./lib/ffmpeg/win32")) {
             New-Item -Path "./lib/ffmpeg/win32" -ItemType "directory"
         } 
-        Copy-Item -Path "./tmp/ffmpeg-7.1-essentials_build/*" -Destination "./lib/ffmpeg/win32" -Recurse -Force
+        Copy-Item -Path "./tmp/ffmpeg-7.1.1-essentials_build/*" -Destination "./lib/ffmpeg/win32" -Recurse -Force
 
         Remove-Item "./tmp/ffmpeg.zip" -Force
-        Remove-Item "./tmp/ffmpeg-7.1-essentials_build" -Recurse -Force
+        Remove-Item "./tmp/ffmpeg-7.1.1-essentials_build" -Recurse -Force
 
         Write-Host "FFmpeg installed" -ForegroundColor Green
 
