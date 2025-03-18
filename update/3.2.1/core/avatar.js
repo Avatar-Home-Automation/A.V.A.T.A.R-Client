@@ -462,6 +462,8 @@ async function updateVersionStep1 (version, answer) {
 
 
 async function updateVersionStep2 (version, local) {
+	
+	version = version.replace(/^\uFEFF/, '');
 
 	const exitApp = () => {
 		const msg = local ? L.get(['newVersion.localStep2', version]) : L.get(['newVersion.step2', version]);
@@ -535,6 +537,7 @@ async function updateVersionStep2 (version, local) {
 
 
 async function updateVersionFromServer(src, version) {
+	version = version.replace(/^\uFEFF/, '');
 	info(L.get(['newVersion.download', version]));
 
 	const sharedFolder = path.resolve(__dirname, '..', 'tmp', 'download');
