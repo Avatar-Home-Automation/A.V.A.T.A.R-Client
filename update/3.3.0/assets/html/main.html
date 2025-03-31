@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <link href="../../node_modules/qtip2/dist/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
+    <script src="../../node_modules/jquery/dist/jquery.js" type="module"></script>
+    <script src="../../node_modules/qtip2/dist/jquery.qtip.js" type="module"></script>
+    <script src="../../node_modules/cytoscape/dist/cytoscape.min.js"></script>
+    <script src="../../node_modules/cytoscape-cxtmenu/cytoscape-cxtmenu.js"></script>
+    <script src="../../node_modules/clipboard/dist/clipboard.min.js"></script>
+    <script src="../../node_modules/xel/xel.js" type="module"></script>
+    <meta name="xel-theme" content="../../node_modules/xel/themes/cupertino-dark.css">
+    <meta name="xel-accent-color" content="purple">
+    <meta name="xel-icons" content="../../node_modules/xel/icons/fluent.svg">
+    <link href="./css/main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="exists" id="newVersion"><x-sign id="newVersionLabel"></x-sign></div>
+
+    <div id="cy"></div>
+    <div id="console" class="info">
+      <div id="consoleheader" class="infoheader"></div>
+      <x-buttons id="console_buttons" tracking="-1" vertical>
+        <x-button id="copy_msg" skin="iconic" class="tooltip" data-clipboard-target="#txtconsoleheader">
+          <x-icon href="#copy"></x-icon>
+        </x-button>
+        <x-button id="clean_msg" skin="iconic" class="tooltip">
+          <x-icon href="#delete"></x-icon>
+        </x-button>
+        <x-button id="police-add" skin="iconic" class="tooltip">
+          <x-icon href="#chevron-right"></x-icon>
+        </x-button>
+        <x-button id="police-less" skin="iconic" class="tooltip">
+          <x-icon href="#chevron-left"></x-icon>
+        </x-button>
+      </x-buttons>
+      <div id='txtconsoleheader'></div>
+    </div> 
+
+    <div id="micro" class="visualizer-div">
+      <svg preserveAspectRatio="none" id="visualizer" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <mask id="mask">
+                <g id="maskGroup"></g>
+            </mask>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#db6247;stop-opacity:1" />
+                <stop offset="40%" style="stop-color:#f6e5d1;stop-opacity:1" />
+                <stop offset="60%" style="stop-color:#5c79c7;stop-opacity:1" />
+                <stop offset="85%" style="stop-color:#b758c0;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#222;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#gradient)" mask="url(#mask)"></rect>
+      </svg>
+      <div class="db-div">
+        <x-box style="width:100%;">
+          <x-progressbar id="db-progressbar" size="small" value="0" max="70"></x-progressbar>
+          <x-label id="db-text" class="db-text"></x-label>
+        </x-box>
+      </div>
+      <h1 id="loud-text" class="sub-text"></h1>
+    </div>
+
+    <x-button id="notification">
+      <dialog id="dialog-notification" class="notification">
+        <main>
+          <h3 id="dialog-notification-title" style="font-size: 16px;"></h3>
+          <p id="dialog-notification-message" style="font-size: 12px;"></p>
+        </main>
+
+        <footer>
+          <x-button id="disagree">
+            <x-label id="later" style="font-size: 12px;"></x-label>
+          </x-button>
+          <x-button autofocus toggled id="agree">
+            <x-label id="restart" style="font-size: 12px;"></x-label>
+          </x-button>
+        </footer>
+      </dialog>
+    </x-button>
+
+    <x-notification id="nonode"></x-notification>
+
+    <script src="../../main-renderer.js"></script>
+    <script src="../../node-renderer.js"></script>
+  </body>
+</html>

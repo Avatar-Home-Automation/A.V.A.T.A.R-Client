@@ -1,0 +1,193 @@
+body, html {
+  font: 12px helvetica neue, helvetica, arial, sans-serif;
+  width : 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #585858;
+}
+
+:root {
+  --resizer-size:18px;
+  --border-size:5px;
+}
+
+#body-div{
+  width : 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0;
+}
+
+#cy {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.info {
+  left: calc(100% - 300px);
+  top: calc((100% - 540px) / 2);
+  position: absolute;
+  background-color: #f1f1f1;
+  resize: both;
+  overflow: auto;
+  pointer-events: all;
+  width: 300px;
+  height: 540px;
+  min-width: 35px;
+  max-width: 99%;
+  min-height: 165px;
+  max-height: 99%;
+  border: var(--border-size) ridge #2196F3;
+  background:  #000000;
+  opacity: 1;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.infoheader {
+  padding: 0px;
+  width: 35px;
+  height: 100%;
+  top: 0px;
+  position: absolute;
+  cursor: move;
+  background-color: #2196F3;
+  color: #fff;
+  text-align: center;
+}
+
+.tooltip {
+  padding: 2px 10px;
+  cursor: pointer;
+}
+
+#console_buttons {
+  margin-left: 0px;
+  position: fixed;
+}
+
+
+#txtconsoleheader {
+  width: calc(100% - 45px);
+  height: calc(100% - 10px);
+  font: 11px helvetica neue, helvetica, arial, sans-serif;
+  margin: 5px 5px 5px 5px;
+  overflow: auto;
+  cursor: move;
+  position: absolute;
+  left: 35px;
+}
+
+dialog.notification::backdrop {
+  pointer-events: none;
+}
+
+#notification {
+  position: fixed;
+  top: -50px;
+}
+
+.visualizer-div {
+  background-color: rgba(0, 0, 0, 0);
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  top: 300px;
+  left: 100px;
+  resize: both;
+  pointer-events: all;
+  overflow: hidden;
+}
+svg {
+  display: block;
+  width: 100%;
+  height: calc(100% - 30px);
+  padding: 0;
+  margin: 0;
+  position:absolute;
+  cursor: move;
+}
+h1 {
+  width: 100%;
+  font-family: sans-serif;
+  position:absolute;
+  text-align:center;
+  color:white;
+}
+.db-text {
+  font-size: 13px;
+  width: max-content;
+  white-space: nowrap;
+  margin-left: 5px;
+}
+.db-div {
+  width: 100%;
+  height: 45px;
+  bottom: 0px;
+  left: 0px;
+  margin-bottom: 5px;
+  font-weight: normal;
+  align-items: center;
+  display: inline-flex;
+  position: absolute;
+}
+.sub-text {
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  bottom: 0px;
+  height: max-content;
+  color: orange;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+path {
+  stroke-linecap: square;
+  stroke: white;
+  stroke-width: 0.5px;
+}
+
+
+.exists {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 30px;
+  line-height: 1.1;
+  text-align: center;
+  display: none;
+  z-index: 1000;
+}
+
+x-sign {
+  --interval: 2s;
+  display: block;
+  text-shadow: 
+    0 0 10px var(--color1),
+    0 0 20px var(--color2),
+    0 0 40px var(--color3),
+    0 0 80px var(--color4);
+  will-change: filter, color;
+  filter: saturate(60%);
+  animation: flicker steps(200) var(--interval) 1s infinite;
+  cursor:grab;
+}
+x-sign:nth-of-type(1) {
+  color: lightyellow;
+  --color1: yellow;
+  --color2: rgb(0, 255, 251);
+  --color3: rgb(205, 0, 0);
+  --color4: lime;
+  font-family:cursive;
+}
+@keyframes flicker {
+  50% {
+    color: rgba(255, 255, 255, 0.268);
+    filter: saturate(200%) hue-rotate(20deg);
+  }
+}
