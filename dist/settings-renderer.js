@@ -19,9 +19,15 @@ function showTab(settingType) {
     document.getElementById("nodes-tab").style.display = "none";
     document.getElementById("background-tab").style.display = "none";
     document.getElementById("intercom-tab").style.display = "none";
-  
+    document.getElementById("theme-tab").style.display = "none";
+
     window.requestAnimationFrame(() => {
         document.getElementById(settingType).style.display = "block";
+        if (settingType === "theme-tab" ) {
+            document.getElementById("test-properties").style.display = "";
+        } else {
+            document.getElementById("test-properties").style.display = "none";
+        }
     })
 }
 
@@ -42,10 +48,53 @@ document.getElementById("nodes").addEventListener("click", (event) => {
 })
 document.getElementById("intercom").addEventListener("click", (event) => {
     showTab("intercom-tab");
-  })
+})
 document.getElementById("background").addEventListener("click", (event) => {
   showTab("background-tab");
 })
+document.getElementById("theme").addEventListener("click", (event) => {
+    showTab("theme-tab")
+})
+
+
+document.getElementById("test-properties").addEventListener("click", async (event) => {
+
+    let theme, color, icons;
+  
+    let item = document.getElementsByClassName("theme-interface");
+    for (let i = 0; i < item.length; i++) {
+        if (item[i].toggled) {
+          theme = item[i].value;
+          break;
+        }
+    }
+  
+    item = document.getElementsByClassName("theme-color");
+    for (let i = 0; i < item.length; i++) {
+        if (item[i].toggled) {
+          color = item[i].value;
+          break;
+        }
+    }
+  
+    item = document.getElementsByClassName("theme-icons");
+    for (let i = 0; i < item.length; i++) {
+        if (item[i].toggled) {
+          icons = item[i].value;
+          break;
+        }
+    }
+  
+    setSettingsXel({
+      screen:{
+        xeltheme: theme,
+        xelcolor: color,
+        xelicons: icons
+      }
+    })
+  
+})
+
 
 
 function getCurrentBCP47 () {
@@ -827,6 +876,30 @@ async function updateProperties() {
           interfaceProperties.screen.background = decodeURIComponent(src.pathname.substring(1)); 
         }
     }
+
+    item = document.getElementsByClassName("theme-interface");
+    for (let i = 0; i < item.length; i++) {
+        if (item[i].toggled) {
+            interfaceProperties.screen.xeltheme = item[i].value;
+            break;
+        }
+    }
+
+    item = document.getElementsByClassName("theme-color");
+    for (let i = 0; i < item.length; i++) {
+        if (item[i].toggled) {
+            interfaceProperties.screen.xelcolor = item[i].value;
+            break;
+        }
+    }
+
+    item = document.getElementsByClassName("theme-icons");
+    for (let i = 0; i < item.length; i++) {
+        if (item[i].toggled) {
+            interfaceProperties.screen.xelicons = item[i].value;
+            break;
+        }
+    }
     
 } 
 
@@ -1324,6 +1397,17 @@ async function setHTMLContent() {
     document.getElementById('visualiser-loud-txt').toggled = interfaceProperties.visualizer.txt_loud;
     document.getElementById('visualiser-loud-txt-color').value = interfaceProperties.visualizer.loud_text_color;
     document.getElementById('visualiser-loud-txt-color-picker').value = interfaceProperties.visualizer.loud_text_color;
+
+    // theme
+    if (interfaceProperties.screen?.xeltheme) {
+        document.getElementById(interfaceProperties.screen.xeltheme).toggled = true;
+        document.getElementById(interfaceProperties.screen.xelcolor).toggled = true;
+        document.getElementById(interfaceProperties.screen.xelicons+'-icon').toggled = true;
+    } else {
+        document.getElementById('cupertino-dark').toggled = true;
+        document.getElementById('purple').toggled = true;
+        document.getElementById('fluent-icon').toggled = true;
+    }
 }   
 
 
@@ -1351,7 +1435,8 @@ async function setLangTargets() {
     document.getElementById('screen-saver-label').innerHTML = await Lget("settings", "screensaver");
     document.getElementById('select-screen-saver-label').innerHTML = await Lget("settings", "selectscreensaver");
     document.getElementById('screen-saver-timer-label').innerHTML = await Lget("settings", "screensavertimer");
-    document.getElementById('label-screen-saver-label-onoff').innerHTML = await Lget("settings", "screensavertimerOnoff")
+    document.getElementById('label-screen-saver-label-onoff').innerHTML = await Lget("settings", "screensavertimerOnoff");
+    document.getElementById('test-properties-label').innerHTML = await Lget("settings", "test");
     document.getElementById('label-save-properties').innerHTML = await Lget("settings", "saveproperties");
     document.getElementById('label-quit').innerHTML = await Lget("settings", "quit");
     document.getElementById('update-label').innerHTML = await Lget("settings", "update")
@@ -1485,6 +1570,28 @@ async function setLangTargets() {
 
     document.getElementById('label-select-background').innerHTML = await Lget("settings", "selectimage")
 
+    // Theme tab
+    document.getElementById('theme').innerHTML = await Lget("settings", "theme")
+    document.getElementById('theme-title').innerHTML = await Lget("settings", "themeTitle")
+    document.getElementById('theme-label').innerHTML = await Lget("settings", "themeLabel")
+    document.getElementById('theme-color-label').innerHTML = await Lget("settings", "themeColorLabel")
+    document.getElementById('theme-icons-label').innerHTML = await Lget("settings", "themeIconsLabel")
+
+}
+
+
+async function setSettingsXel(interface) {
+    if (interface && interface.screen?.xeltheme) {
+      document
+      .querySelector('meta[name="xel-theme"]')
+      .setAttribute('content', '../../node_modules/xel/themes/' + interface.screen.xeltheme + '.css');
+      
+      document.querySelector('meta[name="xel-accent-color"]').setAttribute('content', interface.screen.xelcolor);
+      
+      document
+      .querySelector('meta[name="xel-icons"]')
+      .setAttribute('content', '../../node_modules/xel/icons/' + interface.screen.xelicons + '.svg');
+    }
 }
 
 
@@ -1495,6 +1602,7 @@ window.electronAPI.onInitApp(async (_event, arg) => {
     BCP47 = arg.BCP47;
     BCP47app = arg.BCP47app;
     voices = arg.voices;
+    await setSettingsXel(interfaceProperties);
     await setLangTargets();
     await setHTMLContent();
 })

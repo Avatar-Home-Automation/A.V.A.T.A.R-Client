@@ -462,7 +462,7 @@ async function updateVersionStep1 (version, answer) {
 
 
 async function updateVersionStep2 (version, local) {
-	
+
 	version = version.replace(/^\uFEFF/, '');
 
 	const exitApp = () => {
@@ -480,12 +480,11 @@ async function updateVersionStep2 (version, local) {
 	let installPath = path.resolve(__dirname, '..', 'tmp');
 	switch (process.platform) {
 		case 'win32':
-			const powerShell = (Config.powerShell) ? Config.powerShell : "powershell"
-
+			const powerShell = (Config.powerShell) ? Config.powerShell : "powershell";
 			cmd = "@echo off";
 			cmd += "\n";
 			cmd += `call cmd /K "${powerShell}" -ExecutionPolicy Bypass -command ./${version}.ps1`;
-			
+
 			fs.copySync(path.resolve(__dirname, '..', 'lib', 'versioning', 'win32', 'step-2.ps1'), path.resolve(`${installPath}`, `${version}.ps1`));
 			fs.writeFileSync(path.resolve(`${installPath}`, 'shell.bat'), cmd, 'utf8');
 
@@ -537,8 +536,9 @@ async function updateVersionStep2 (version, local) {
 
 
 async function updateVersionFromServer(src, version) {
-	
+
 	version = version.replace(/^\uFEFF/, '');
+
 	info(L.get(['newVersion.download', version]));
 
 	const sharedFolder = path.resolve(__dirname, '..', 'tmp', 'download');

@@ -4,10 +4,6 @@ body, html {
     overflow: hidden;
 }
 
-#body {
-    background-color: #585858;
-}
-
 .top-10 {
     margin-left: 10px;
 }
@@ -16,7 +12,6 @@ body, html {
     margin-top: 30px;
     margin-left: 15px;
 }
-
 
 .cursor-pointer {
     cursor: pointer;
@@ -60,6 +55,14 @@ body, html {
     width: auto;
     height: auto;
     max-width: 18px;
+    margin: unset;
+}
+
+
+img {
+    margin: unset !important;
+    background: unset !important;
+    border-style: unset !important;
 }
 
 

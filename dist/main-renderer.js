@@ -587,9 +587,25 @@ window.electronAPI.readyToMenu(async () => {
 })
 
 
+async function setSettingsXel(interface) {
+  if (interface && interface.screen?.xeltheme) {
+    document
+    .querySelector('meta[name="xel-theme"]')
+    .setAttribute('content', '../../node_modules/xel/themes/' + interface.screen.xeltheme + '.css');
+    
+    document.querySelector('meta[name="xel-accent-color"]').setAttribute('content', interface.screen.xelcolor);
+    
+    document
+    .querySelector('meta[name="xel-icons"]')
+    .setAttribute('content', '../../node_modules/xel/icons/' + interface.screen.xelicons + '.svg');
+  }
+}
+
+
 window.electronAPI.onInitApp((_event, arg) => {
   interfaceProperty = arg.interface;
   appProperties = arg.app;
+  setSettingsXel(interfaceProperty);
   setBackground();
   setHTMLContent();
   setLangTargets();

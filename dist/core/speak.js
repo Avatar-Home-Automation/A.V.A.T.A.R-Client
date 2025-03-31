@@ -91,7 +91,9 @@ async function speak(tts, callback, end, voice, volume, speed, pitch, test) {
     // S’il faut parler depuis le serveur (ex. socket), on délègue
     if (Config.speech.server_speak === true) {
       const next = callback ? true : false;
-      if (next) Avatar.serverSpeakCallback = callback;
+      if (next) {
+        Avatar.serverSpeakCallback = callback;
+      }
 
       return Avatar.HTTP.socket.emit(
         "server_speak",

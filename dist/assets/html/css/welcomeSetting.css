@@ -4,10 +4,6 @@ body, html {
     overflow: hidden;
 }
 
-#body {
-    background-color: #585858;
-}  
-
 .margin-left-15 {
     margin-left: 15px;
 }

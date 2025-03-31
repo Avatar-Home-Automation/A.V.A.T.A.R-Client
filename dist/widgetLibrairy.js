@@ -61,7 +61,8 @@ async function widgetAction(arg, periphInfos) {
 
 async function deleteWidget(widget) {
     if (!widget) return false;
-    await shell.trashItem(path.resolve (widgetPath, widget+'.json'));
+    if (fs.existsSync(path.resolve (widgetPath, widget+'.json')))
+        await shell.trashItem(path.resolve (widgetPath, widget+'.json'));
     return true;   
 }
 
@@ -116,7 +117,7 @@ async function saveWidgets(widgets) {
 function getWidgetInfos(widget) {
     return new Promise(async (resolve) => {
         if (widget.type !== 'button') {
-            let current_values = await API.getPeriphCaract(widget.id)
+            let current_values = await API.getPeriphCaract(widget.id);
             let diff = moment().diff(current_values.last_value_change.replace(' ','T'), 'seconds')
             widget.value = current_values.last_value_text ? current_values.last_value_text : current_values.last_value
             widget.isWrap = Avatar.APIFunctions.getSizing (widget.value)
@@ -223,7 +224,7 @@ function getWidgets() {
 
 async function initVar (widget_folder, img_Folder, api, config) {
     widgetPath = widget_folder;
-    
+
     await Avatar.APIFunctions.initVar(img_Folder);
     if (api !== null) {
         let APIPlugin = await import ('file:///'+api);

@@ -3,7 +3,10 @@
 		"width":1040,
 		"height":688,
 		"fullscreen":false,
-		"background":""
+		"background":"",
+		"xeltheme": "fluent-dark",
+        "xelcolor": "purple",
+        "xelicons": "fluent"
 	},
 	"console":{
 		"display":true,

@@ -1,17 +1,23 @@
-# Changelog - Version 3.2.3
+# Changelog - Version 3.3.0
 
 ## 📅 Release Date
-02 march 2025
+30 march 2025
 
 ---
 
 ### ✨ New Features
-- **[MacOS]**: Added an environment verification test included in `launchctl` and added the environment's PATH variable if it is null.
+- **[Plugin Scenario]**: New command for creating scenarios. Create the scenarios you want using plugin functions as well as by adding specific JavaScript code, and execute them via voice commands or scheduled programming.
+- **[Interfaces]**: New `theme` tab in the settings to choose the interface theme you desire.
+- **[Plugin language]**: Added the possibility to have multiple TTS options in one plugin message with random selection.
+- **[A.V.A.T.A.R]**: Updated the modules  `electron` (major realease), `Xel`, `axios`, `core-js`, `Cron`, `cytoscape`, `jsoneditor`, `puppeteer`, `helmet` and `klaw-sync`
+
 
 ---
 
 ## 🐞 Bug Fixes
-- **[Plugin client]**: Modification of the `Avatar.clientPlugin()` function so that the callback correctly returns a value.
+- **[Information]**: Optimization of the display of vulnerable packages.
+- Fixed minor visual bugs.  
+- Corrected application messages.
 
 ---
 
