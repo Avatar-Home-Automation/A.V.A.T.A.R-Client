@@ -1,0 +1,52 @@
+{
+	"screen":{
+		"width":1040,
+		"height":688,
+		"fullscreen":false,
+		"background":"",
+		"xeltheme": "fluent-dark",
+        "xelcolor": "purple",
+        "xelicons": "fluent"
+	},
+	"console":{
+		"display":true,
+		"color":"#fd2df1",
+		"background_color":"#000",
+		"opacity":1,
+		"txtOpacity":true,
+		"border":false,
+		"header":true,
+		"textColor":"#fff",
+		"textBold":false,
+		"width":303,
+		"height":353,
+		"left":626,
+		"top":36
+	},
+	"visualizer":{
+		"display":true,
+		"max_loud":40,
+		"txt_loud":true,
+		"loud_text_color":"orange",
+		"width":504,
+		"height":214,
+		"left":99,
+		"top":392
+	},
+	"nodes":{
+		"display":true,
+		"shape_display":false,
+		"shape_width":220,
+		"shape_height":50,
+		"shape_color":"red",
+		"shape_thickness":2,
+		"shape_opacity":1,
+		"type":"cut-rectangle",
+		"fontsize":32,
+		"fontcolor":"#fff",
+		"fontoutline":3,
+		"fontbordercolor":"#a72e9b",
+		"left":111,
+		"top":52
+	}
+}
