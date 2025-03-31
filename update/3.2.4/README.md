@@ -1,4 +1,4 @@
-# Changelog - Version 3.2.5
+# Changelog - Version 3.2.4
 
 ## 📅 Release Date
 31 march 2025
