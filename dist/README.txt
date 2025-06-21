@@ -1,6 +1,7 @@
-Version 3.3.0
+Version 3.3.1
 *************
 
 Installation type:
-- This version requires the creation of a new version
-	
+- This version requires files to be copied in the A.V.A.T.A.R Server directory.
+
+

@@ -957,6 +957,7 @@ async function appInit () {
         github = await githubLib.init(Config);
         Report = await reportLibrary.init();
         Scenario = await scenarioLibrary.init();
+        Avatar.Cron.start();
         return true;
       }
     } catch (err) {
