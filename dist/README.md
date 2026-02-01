@@ -1,15 +1,13 @@
-# Changelog - Version 3.3.1
+# Changelog - Version 3.3.2
 
 ## 📅 Release Date
-06 april 2025
+01 february 2026
 
 ---
 
-## 🐞 Bug Fixes
+### ✨ New Features
 
-- **[Scenario Studio]**: Fixed an execution bug in the `Module` node. JavaScript is now copied to a temporary file for execution. Added error messages in the language files.
-- **[Plugin Cron]**: Starting the job declared in the plugins properties file.
-- **[Plugin default image]**: Added a default image for the plugins.
+- **[A.V.A.T.A.R]**: nodejs modules updated to the last version (electron, puppeter, socket.io, cron, etc...)
 
 ---
 

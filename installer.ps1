@@ -395,10 +395,10 @@ function Install-ffmpeg {
         if (-Not (Test-Path "./lib/ffmpeg/win32")) {
             New-Item -Path "./lib/ffmpeg/win32" -ItemType "directory"
         } 
-        Copy-Item -Path "./tmp/ffmpeg-7.1.1-essentials_build/*" -Destination "./lib/ffmpeg/win32" -Recurse -Force
+        Copy-Item -Path "./tmp/ffmpeg-8.0.1-essentials_build/*" -Destination "./lib/ffmpeg/win32" -Recurse -Force
 
         Remove-Item "./tmp/ffmpeg.zip" -Force
-        Remove-Item "./tmp/ffmpeg-7.1.1-essentials_build" -Recurse -Force
+        Remove-Item "./tmp/ffmpeg-8.0.1-essentials_build" -Recurse -Force
 
         Write-Host "FFmpeg installed" -ForegroundColor Green
 
@@ -1470,7 +1470,7 @@ if ($null -eq $version ) {
 
 # Creating application
 Write-Host "> Creating new A.V.A.T.A.R client, please wait..." -ForegroundColor DarkMagenta
-start-process -FilePath $npx -ArgumentList "electron-packager", ".", "--electron-version=$electron", "--overwrite", "--icon=./avatar.ico", "--out=./output" -NoNewWindow -workingdirectory "." -Wait
+start-process -FilePath $npx -ArgumentList "electron-packager", ".", "--electron-version=$electron", "--no-asar", "--overwrite", "--icon=./avatar.ico", "--out=./output" -NoNewWindow -workingdirectory "." -Wait
 Write-Host "A.V.A.T.A.R client created" -ForegroundColor Green
 Start-Sleep -Seconds 1   
 
