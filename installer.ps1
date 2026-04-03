@@ -395,10 +395,10 @@ function Install-ffmpeg {
         if (-Not (Test-Path "./lib/ffmpeg/win32")) {
             New-Item -Path "./lib/ffmpeg/win32" -ItemType "directory"
         } 
-        Copy-Item -Path "./tmp/ffmpeg-8.0.1-essentials_build/*" -Destination "./lib/ffmpeg/win32" -Recurse -Force
+        Copy-Item -Path "./tmp/ffmpeg-8.1-essentials_build/*" -Destination "./lib/ffmpeg/win32" -Recurse -Force
 
         Remove-Item "./tmp/ffmpeg.zip" -Force
-        Remove-Item "./tmp/ffmpeg-8.0.1-essentials_build" -Recurse -Force
+        Remove-Item "./tmp/ffmpeg-8.1-essentials_build" -Recurse -Force
 
         Write-Host "FFmpeg installed" -ForegroundColor Green
 
